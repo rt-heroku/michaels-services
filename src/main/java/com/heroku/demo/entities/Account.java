@@ -30,10 +30,10 @@ public class Account implements Serializable {
     @Column(name="billingcountry", length=80)
     private String     billingcountry ;
 
-    @Column(name="_hc_err", length=2147483647)
+    @Column(name="_hc_err", length=4096)
     private String     hcErr        ;
 
-    @Column(name="description", length=2147483647)
+    @Column(name="description", length=4096)
     private String     description  ;
 
     @Column(name="tickersymbol", length=20)

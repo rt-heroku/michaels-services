@@ -37,7 +37,7 @@ public class Contact implements Serializable {
     @Column(name="isdeleted")
     private Boolean    isdeleted    ;
 
-    @Column(name="_hc_err", length=2147483647)
+    @Column(name="_hc_err", length=4096)
     private String     hcErr        ;
 
     @Temporal(TemporalType.TIMESTAMP)
