@@ -37,7 +37,7 @@ public class DemandwareRestController {
 	 */
 
 	@RequestMapping(value=PRODUCT_SEARCH, method=RequestMethod.GET,
-			produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+			produces = MediaType.APPLICATION_JSON_VALUE/*, consumes = MediaType.APPLICATION_JSON_VALUE*/)
 	@ResponseBody
 	public ResponseMessage search(@RequestParam(required = false, defaultValue = "") String q, HttpServletRequest request) {
 
@@ -61,7 +61,7 @@ public class DemandwareRestController {
 	}
 	
 	@RequestMapping(value="/products/{id}", method=RequestMethod.GET,
-			produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+			produces = MediaType.APPLICATION_JSON_VALUE/*, consumes = MediaType.APPLICATION_JSON_VALUE*/)
 	@ResponseBody
 	public ResponseMessage productDetail(@PathVariable String id, @RequestParam(required = false, defaultValue = "") String q, HttpServletRequest request) {
 
@@ -85,7 +85,7 @@ public class DemandwareRestController {
 	
 	
 	@RequestMapping(value=CATEGORY_URL, method=RequestMethod.GET,
-			produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+			produces = MediaType.APPLICATION_JSON_VALUE/*, consumes = MediaType.APPLICATION_JSON_VALUE*/)
 	@ResponseBody
 	public ResponseMessage allCategories(@PathVariable String category, HttpServletRequest request) {
 
@@ -102,7 +102,7 @@ public class DemandwareRestController {
 		return responseMessage;
 	}
 	@RequestMapping(value="/categories", method=RequestMethod.GET,
-			produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+			produces = MediaType.APPLICATION_JSON_VALUE/*, consumes = MediaType.APPLICATION_JSON_VALUE*/)
 	@ResponseBody
 	public ResponseMessage cateogry(HttpServletRequest request) {
 
