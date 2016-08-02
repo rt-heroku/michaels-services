@@ -63,14 +63,17 @@ public class DemandwareRestController {
 	@RequestMapping(value="/products/{id}", method=RequestMethod.GET,
 			produces = MediaType.APPLICATION_JSON_VALUE/*, consumes = MediaType.APPLICATION_JSON_VALUE*/)
 	@ResponseBody
-	public ResponseMessage productDetail(@PathVariable String id, @RequestParam(required = false, defaultValue = "") String q, HttpServletRequest request) {
+	public ResponseMessage productDetail(@PathVariable String id,
+										 @RequestParam(required = false, defaultValue = "") String q, 
+										 @RequestParam(required = false, defaultValue = "") String catid, 
+										 HttpServletRequest request) {
 
 		if (logger.isDebugEnabled())
 			logger.debug("DemandwareController -> search(" + q + "");
 		
 		ResponseMessage responseMessage = new ResponseMessage();
 		try {
-			responseMessage.setData(dwService.getProduct(id, q));
+			responseMessage.setData(dwService.getProduct(id, q, catid));
 		} catch (Exception e) {
 			logger.error("DemandwareController -> search", e);
 			responseMessage.setError(-1, "Unable to get search items for query: " + e.getMessage());

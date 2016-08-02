@@ -50,13 +50,16 @@ public class DemandwareService
 	}
 
 	//http://mjacob01-inside-na01-dw.demandware.net/s/SiteGenesis/dw/shop/v16_4/products/TG720?q=shoes&client_id=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-	public Product getProduct(String product, String q){
+	public Product getProduct(String product, String category, String q){
 		Demandware dw = new Demandware();
 		if (logger.isDebugEnabled())
 			logger.debug("Retrieving product detail from demandware for product [" + product + "]");
 		
         RestTemplate restTemplate = new RestTemplate();
         String service = dw.getUrl() + "/s/SiteGenesis/dw/shop/" + dw.getApiVersion() + "/products/" + product + "?q=" + q  + "&client_id=" + dw.getClientId();
+        
+        if (category != null && !category.equals(""))
+        	service += "&catid=" + category;
         
         System.out.println("Calling demandware service" + service);
         
@@ -74,7 +77,7 @@ public class DemandwareService
 	    return queryString;
 	}
 	
-	public Categories allCategories(String category){
+	public Categories allLevel1Categories(String category){
 		Demandware dw = new Demandware();
 		if (logger.isDebugEnabled())
 			logger.debug("Retrieving categories from demandware ");
@@ -88,6 +91,28 @@ public class DemandwareService
 		
 		return c;		
 	}
+	
+	//http://mjacob01-inside-na01-dw.demandware.net/s/SiteGenesis/dw/shop/v16_4/categories/root?levels=2&client_id=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	public com.heroku.demo.dto.categories.Categories allCategories(String category){
+		Demandware dw = new Demandware();
+		if (logger.isDebugEnabled())
+			logger.debug("Retrieving categories from demandware ");
+		
+		RestTemplate restTemplate = new RestTemplate();
+		String service = dw.getUrl() + "/s/SiteGenesis/dw/shop/" + dw.getApiVersion() + "/categories/" + category + "?levels=2&client_id=" + dw.getClientId() + "";
+		
+		System.out.println("Calling demandware service" + service);
+		
+		com.heroku.demo.dto.categories.Categories cs = restTemplate.getForObject(service, com.heroku.demo.dto.categories.Categories.class);
+		
+		
+//		for (Category c : cs.getCategories()){
+//			c.get
+//		}
+		
+		return cs;		
+	}
+
 
 }
 
