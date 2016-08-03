@@ -31,7 +31,7 @@ public class DemandwareService
 			logger.debug("Retrieving products from demandware that match " + product);
 		
         RestTemplate restTemplate = new RestTemplate();
-        String service = dw.getUrl() + "/s/SiteGenesis/dw/shop/" + dw.getApiVersion() + "/product_search?q=shoes&client_id=" + dw.getClientId() + "&expand=prices,images";
+        String service = dw.getUrl() + "/dw/shop/" + dw.getApiVersion() + "/product_search?q=" + product + "&client_id=" + dw.getClientId() + "&expand=prices,images";
         
         System.out.println("Calling demandware service" + service);
         System.out.println("category = [" + category + "]");
@@ -44,7 +44,7 @@ public class DemandwareService
 
         for (int i = 0; i < ps.getHits().size(); i++) {
         	String u = ps.getHits().get(i).getLink();
-        	String newU = u.replace(dw.getUrl() + "/s/SiteGenesis/dw/shop/" + dw.getApiVersion(), url);
+        	String newU = u.replace(dw.getUrl() + "/dw/shop/" + dw.getApiVersion(), url);
         	
         	newU = removeParams(newU, "client_id");
         	
@@ -54,14 +54,14 @@ public class DemandwareService
 		return ps;		
 	}
 
-	//http://mjacob01-inside-na01-dw.demandware.net/s/SiteGenesis/dw/shop/v16_4/products/TG720?q=shoes&client_id=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	//http://mjacob01-inside-na01-dw.demandware.net/dw/shop/v16_4/products/TG720?q=shoes&client_id=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 	public Product getProduct(String product, String category, String q){
 		Demandware dw = new Demandware();
 		if (logger.isDebugEnabled())
 			logger.debug("Retrieving product detail from demandware for product [" + product + "]");
 		
         RestTemplate restTemplate = new RestTemplate();
-        String service = dw.getUrl() + "/s/SiteGenesis/dw/shop/" + dw.getApiVersion() + "/products/" + product + "?q=" + q  + "&client_id=" + dw.getClientId();
+        String service = dw.getUrl() + "/dw/shop/" + dw.getApiVersion() + "/products/" + product + "?q=" + q  + "&client_id=" + dw.getClientId();
 
         System.out.println("category = [" + category + "]");
         
@@ -90,7 +90,7 @@ public class DemandwareService
 			logger.debug("Retrieving categories from demandware ");
 		
 		RestTemplate restTemplate = new RestTemplate();
-		String service = dw.getUrl() + "/s/SiteGenesis/dw/shop/" + dw.getApiVersion() + "/categories/" + category + "?levels=1&client_id=" + dw.getClientId() + "";
+		String service = dw.getUrl() + "/dw/shop/" + dw.getApiVersion() + "/categories/" + category + "?levels=1&client_id=" + dw.getClientId() + "";
 		
 		System.out.println("Calling demandware service" + service);
 		
@@ -99,14 +99,14 @@ public class DemandwareService
 		return c;		
 	}
 	
-	//http://mjacob01-inside-na01-dw.demandware.net/s/SiteGenesis/dw/shop/v16_4/categories/root?levels=2&client_id=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+	//http://mjacob01-inside-na01-dw.demandware.net/dw/shop/v16_4/categories/root?levels=2&client_id=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 	public com.heroku.demo.dto.categories.Categories allCategories(String category){
 		Demandware dw = new Demandware();
 		if (logger.isDebugEnabled())
 			logger.debug("Retrieving categories from demandware ");
 		
 		RestTemplate restTemplate = new RestTemplate();
-		String service = dw.getUrl() + "/s/SiteGenesis/dw/shop/" + dw.getApiVersion() + "/categories/" + category + "?levels=2&client_id=" + dw.getClientId() + "";
+		String service = dw.getUrl() + "/dw/shop/" + dw.getApiVersion() + "/categories/" + category + "?levels=2&client_id=" + dw.getClientId() + "";
 		
 		System.out.println("Calling demandware service" + service);
 		
