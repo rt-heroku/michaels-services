@@ -25,7 +25,7 @@ public class DemandwareService
 	/*
 	 * READ methods
 	 */
-	public ProductSearch search(String product, String url){
+	public ProductSearch search(String product, String url, String category){
 		Demandware dw = new Demandware();
 		if (logger.isDebugEnabled())
 			logger.debug("Retrieving products from demandware that match " + product);
@@ -34,6 +34,11 @@ public class DemandwareService
         String service = dw.getUrl() + "/s/SiteGenesis/dw/shop/" + dw.getApiVersion() + "/product_search?q=shoes&client_id=" + dw.getClientId() + "&expand=prices,images";
         
         System.out.println("Calling demandware service" + service);
+        System.out.println("category = [" + category + "]");
+        
+        if (!category.equals("")){
+        	service += "&refine_1=cgid=" + category;
+        }
         
         ProductSearch ps = restTemplate.getForObject(service, ProductSearch.class);
 
@@ -57,11 +62,13 @@ public class DemandwareService
 		
         RestTemplate restTemplate = new RestTemplate();
         String service = dw.getUrl() + "/s/SiteGenesis/dw/shop/" + dw.getApiVersion() + "/products/" + product + "?q=" + q  + "&client_id=" + dw.getClientId();
+
+        System.out.println("category = [" + category + "]");
         
-        if (category != null && !category.equals(""))
-        	service += "&catid=" + category;
-        
-        System.out.println("Calling demandware service" + service);
+        if (!category.equals("")){
+        	service += "&refine_1=cgid=" + category;
+        }
+        System.out.println("Calling demandware service - " + service);
         
         Product p = restTemplate.getForObject(service, Product.class);
        

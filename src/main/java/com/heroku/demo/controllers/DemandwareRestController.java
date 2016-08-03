@@ -39,20 +39,18 @@ public class DemandwareRestController {
 	@RequestMapping(value=PRODUCT_SEARCH, method=RequestMethod.GET,
 			produces = MediaType.APPLICATION_JSON_VALUE/*, consumes = MediaType.APPLICATION_JSON_VALUE*/)
 	@ResponseBody
-	public ResponseMessage search(@RequestParam(required = false, defaultValue = "") String q, HttpServletRequest request) {
+	public ResponseMessage search(@RequestParam(required = false, defaultValue = "") String q, 
+			 					  @RequestParam(required = false, defaultValue = "") String cgid, 
+			 					  HttpServletRequest request) {
 
 		String u = prepareUrl(request.getRequestURL().toString(), PRODUCT_SEARCH);
 		
-		System.out.println("request uri = " + request.getRequestURI());
-		System.out.println("request URL = " + request.getRequestURL().toString());
-		System.out.println("prepared URL = " + u);
-				
 		if (logger.isDebugEnabled())
 			logger.debug("DemandwareController -> search(" + q + "");
 		
 		ResponseMessage responseMessage = new ResponseMessage();
 		try {
-			responseMessage.setData(dwService.search(q, u));
+			responseMessage.setData(dwService.search(q, u, cgid));
 		} catch (Exception e) {
 			logger.error("DemandwareController -> search", e);
 			responseMessage.setError(-1, "Unable to get search items for query: " + e.getMessage());
@@ -65,7 +63,7 @@ public class DemandwareRestController {
 	@ResponseBody
 	public ResponseMessage productDetail(@PathVariable String id,
 										 @RequestParam(required = false, defaultValue = "") String q, 
-										 @RequestParam(required = false, defaultValue = "") String catid, 
+										 @RequestParam(required = false, defaultValue = "") String cgid, 
 										 HttpServletRequest request) {
 
 		if (logger.isDebugEnabled())
@@ -73,7 +71,7 @@ public class DemandwareRestController {
 		
 		ResponseMessage responseMessage = new ResponseMessage();
 		try {
-			responseMessage.setData(dwService.getProduct(id, q, catid));
+			responseMessage.setData(dwService.getProduct(id, q, cgid));
 		} catch (Exception e) {
 			logger.error("DemandwareController -> search", e);
 			responseMessage.setError(-1, "Unable to get search items for query: " + e.getMessage());

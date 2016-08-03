@@ -70,6 +70,12 @@
     <version>3.0</version>
 </dependency>
 	
+<!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
+<dependency>
+    <groupId>commons-beanutils</groupId>
+    <artifactId>commons-beanutils</artifactId>
+    <version>1.9.2</version>
+</dependency>
 		<!-- Logging dependencies -->
  		<dependency>
 			<groupId>org.slf4j</groupId>

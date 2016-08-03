@@ -115,7 +115,7 @@ public class Account implements Serializable {
 		this.billingcity = a.billingcity;
 		this.accountsource = a.accountsource;
 		this.name = a.name;
-		return a;
+		return this;
 	}
 
 	//----------------------------------------------------------------------
