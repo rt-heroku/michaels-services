@@ -61,6 +61,8 @@ public class Category {
     private String pageKeywords;
     @JsonProperty("c_alternativeUrl")
     private String cAlternativeUrl;
+    @JsonProperty("thumbnail")
+    private String thumbnail;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -448,7 +450,17 @@ public class Category {
         return this;
     }
 
-    @Override
+    @JsonProperty("categories")
+    public String getThumbnail() {
+		return thumbnail;
+	}
+
+    @JsonProperty("categories")
+	public void setThumbnail(String thumbnail) {
+		this.thumbnail = thumbnail;
+	}
+
+	@Override
     public int hashCode() {
         return new HashCodeBuilder().append(type).append(categories).append(id).append(name).append(pageDescription).append(pageTitle).append(parentCategoryId).append(cEnableCompare).append(cHeaderMenuBanner).append(cHeaderMenuOrientation).append(cShowInMenu).append(pageKeywords).append(cAlternativeUrl).append(additionalProperties).toHashCode();
     }

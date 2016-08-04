@@ -25,7 +25,6 @@ public class DemandwareRestController {
 	
 	private static final String PRODUCT_SEARCH = "/products/search";
 	private static final String CATEGORY_URL = "/category/{category}";
-	private static final String ROOT = "root";
 
 	private static Logger logger = LoggerFactory.getLogger(AccountController.class);
 	
@@ -95,7 +94,7 @@ public class DemandwareRestController {
 		
 		ResponseMessage responseMessage = new ResponseMessage();
 		try {
-			responseMessage.setData(dwService.allCategories(category));
+			responseMessage.setData(dwService.getCategories(category));
 		} catch (Exception e) {
 			logger.error("DemandwareController -> search", e);
 			responseMessage.setError(-1, "Unable to get search items for squery: " + e.getMessage());
@@ -105,14 +104,14 @@ public class DemandwareRestController {
 	@RequestMapping(value="/categories", method=RequestMethod.GET,
 			produces = MediaType.APPLICATION_JSON_VALUE/*, consumes = MediaType.APPLICATION_JSON_VALUE*/)
 	@ResponseBody
-	public ResponseMessage cateogry(HttpServletRequest request) {
+	public ResponseMessage getRootCateogry(HttpServletRequest request) {
 
 		if (logger.isDebugEnabled())
 			logger.debug("DemandwareController -> categories");
 		
 		ResponseMessage responseMessage = new ResponseMessage();
 		try {
-			responseMessage.setData(dwService.allCategories(ROOT));
+			responseMessage.setData(dwService.getRootCategories());
 		} catch (Exception e) {
 			logger.error("DemandwareController -> category", e);
 			responseMessage.setError(-1, "Unable to get search items for query: " + e.getMessage());

@@ -7,7 +7,7 @@ public class Demandware {
 	private String apiVersion;
 	private String username;
 	private String secret;
-	
+	private String rootCategory;
 	
 	public Demandware(String url, String clientId, String apiVersion) {
 		super();
@@ -23,6 +23,7 @@ public class Demandware {
 		setApiVersion(isNull(System.getenv("DW_API_VERSION"), "v16_4"));
 		setUsername(isNull(System.getenv("DW_USERNAME"),""));
 		setSecret(isNull(System.getenv("DW_SECRET"),""));
+		setRootCategory(isNull(System.getenv("DW_ROOT_CATEGORY"), "Categories"));
 	}
 	
 	private String isNull(String val, String d){
@@ -67,6 +68,16 @@ public class Demandware {
 
 	public void setSecret(String secret) {
 		this.secret = secret;
+	}
+
+
+	public String getRootCategory() {
+		return rootCategory;
+	}
+
+
+	public void setRootCategory(String rootCategory) {
+		this.rootCategory = rootCategory;
 	}
 
 

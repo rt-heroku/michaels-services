@@ -99,8 +99,22 @@ public class DemandwareService
 		return c;		
 	}
 	
-	//http://mjacob01-inside-na01-dw.demandware.net/dw/shop/v16_4/categories/root?levels=2&client_id=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-	public com.heroku.demo.dto.categories.Categories allCategories(String category){
+	public com.heroku.demo.dto.categories.Categories getRootCategories(){
+		Demandware dw = new Demandware();
+		if (logger.isDebugEnabled())
+			logger.debug("Retrieving categories from demandware ");
+		
+		RestTemplate restTemplate = new RestTemplate();
+		String service = dw.getUrl() + "/dw/shop/" + dw.getApiVersion() + "/categories/" + dw.getRootCategory() + "?levels=2&client_id=" + dw.getClientId() + "";
+		
+		System.out.println("allLevel1Categories -> Calling demandware service" + service);
+		
+		com.heroku.demo.dto.categories.Categories cs = restTemplate.getForObject(service, com.heroku.demo.dto.categories.Categories.class);
+		
+		return cs;		
+	}
+
+	public com.heroku.demo.dto.categories.Categories getCategories(String category){
 		Demandware dw = new Demandware();
 		if (logger.isDebugEnabled())
 			logger.debug("Retrieving categories from demandware ");
@@ -108,18 +122,12 @@ public class DemandwareService
 		RestTemplate restTemplate = new RestTemplate();
 		String service = dw.getUrl() + "/dw/shop/" + dw.getApiVersion() + "/categories/" + category + "?levels=2&client_id=" + dw.getClientId() + "";
 		
-		System.out.println("Calling demandware service" + service);
+		System.out.println("allLevel1Categories -> Calling demandware service" + service);
 		
 		com.heroku.demo.dto.categories.Categories cs = restTemplate.getForObject(service, com.heroku.demo.dto.categories.Categories.class);
 		
-		
-//		for (Category c : cs.getCategories()){
-//			c.get
-//		}
-		
 		return cs;		
 	}
-
-
+	
 }
 
