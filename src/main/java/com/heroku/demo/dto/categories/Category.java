@@ -1,9 +1,7 @@
 
 package com.heroku.demo.dto.categories;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import javax.annotation.Generated;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
@@ -20,49 +18,68 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 @Generated("org.jsonschema2pojo")
 @JsonPropertyOrder({
     "_type",
-    "categories",
     "id",
     "name",
     "page_description",
+    "page_keywords",
     "page_title",
     "parent_category_id",
+    "thumbnail",
+    "c_dropDownViewType",
     "c_enableCompare",
-    "c_headerMenuBanner",
-    "c_headerMenuOrientation",
+    "c_hideInSitemap",
+    "c_isExcludeTranslate",
+    "c_isExternalUrl",
+    "c_isRecommendationFromIBMcm",
+    "c_navigationPromoContentAsset",
     "c_showInMenu",
-    "page_keywords",
-    "c_alternativeUrl"
+    "c_showInWhatsNew",
+    "c_showSubCategories",
+    "c_isGridTileSlotEnabled",
+    "c_isLargeViewDefault"
 })
 public class Category {
 
     @JsonProperty("_type")
     private String type;
-    @JsonProperty("categories")
-    private List<Category_> categories = new ArrayList<Category_>();
     @JsonProperty("id")
     private String id;
     @JsonProperty("name")
     private String name;
     @JsonProperty("page_description")
     private String pageDescription;
+    @JsonProperty("page_keywords")
+    private String pageKeywords;
     @JsonProperty("page_title")
     private String pageTitle;
     @JsonProperty("parent_category_id")
     private String parentCategoryId;
-    @JsonProperty("c_enableCompare")
-    private boolean cEnableCompare;
-    @JsonProperty("c_headerMenuBanner")
-    private String cHeaderMenuBanner;
-    @JsonProperty("c_headerMenuOrientation")
-    private String cHeaderMenuOrientation;
-    @JsonProperty("c_showInMenu")
-    private boolean cShowInMenu;
-    @JsonProperty("page_keywords")
-    private String pageKeywords;
-    @JsonProperty("c_alternativeUrl")
-    private String cAlternativeUrl;
     @JsonProperty("thumbnail")
     private String thumbnail;
+    @JsonProperty("c_dropDownViewType")
+    private String cDropDownViewType;
+    @JsonProperty("c_enableCompare")
+    private boolean cEnableCompare;
+    @JsonProperty("c_hideInSitemap")
+    private boolean cHideInSitemap;
+    @JsonProperty("c_isExcludeTranslate")
+    private boolean cIsExcludeTranslate;
+    @JsonProperty("c_isExternalUrl")
+    private boolean cIsExternalUrl;
+    @JsonProperty("c_isRecommendationFromIBMcm")
+    private boolean cIsRecommendationFromIBMcm;
+    @JsonProperty("c_navigationPromoContentAsset")
+    private String cNavigationPromoContentAsset;
+    @JsonProperty("c_showInMenu")
+    private boolean cShowInMenu;
+    @JsonProperty("c_showInWhatsNew")
+    private boolean cShowInWhatsNew;
+    @JsonProperty("c_showSubCategories")
+    private boolean cShowSubCategories;
+    @JsonProperty("c_isGridTileSlotEnabled")
+    private boolean cIsGridTileSlotEnabled;
+    @JsonProperty("c_isLargeViewDefault")
+    private boolean cIsLargeViewDefault;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -75,34 +92,48 @@ public class Category {
 
     /**
      * 
-     * @param cEnableCompare
-     * @param id
-     * @param cAlternativeUrl
+     * @param cShowSubCategories
+     * @param cIsRecommendationFromIBMcm
+     * @param cNavigationPromoContentAsset
      * @param pageKeywords
-     * @param cHeaderMenuOrientation
-     * @param pageTitle
      * @param cShowInMenu
-     * @param parentCategoryId
-     * @param name
-     * @param categories
+     * @param cHideInSitemap
+     * @param cIsGridTileSlotEnabled
      * @param type
-     * @param cHeaderMenuBanner
+     * @param cShowInWhatsNew
+     * @param cIsExcludeTranslate
+     * @param id
+     * @param cEnableCompare
+     * @param thumbnail
+     * @param cDropDownViewType
+     * @param pageTitle
+     * @param name
+     * @param parentCategoryId
+     * @param cIsLargeViewDefault
+     * @param cIsExternalUrl
      * @param pageDescription
      */
-    public Category(String type, List<Category_> categories, String id, String name, String pageDescription, String pageTitle, String parentCategoryId, boolean cEnableCompare, String cHeaderMenuBanner, String cHeaderMenuOrientation, boolean cShowInMenu, String pageKeywords, String cAlternativeUrl) {
+    public Category(String type, String id, String name, String pageDescription, String pageKeywords, String pageTitle, String parentCategoryId, String thumbnail, String cDropDownViewType, boolean cEnableCompare, boolean cHideInSitemap, boolean cIsExcludeTranslate, boolean cIsExternalUrl, boolean cIsRecommendationFromIBMcm, String cNavigationPromoContentAsset, boolean cShowInMenu, boolean cShowInWhatsNew, boolean cShowSubCategories, boolean cIsGridTileSlotEnabled, boolean cIsLargeViewDefault) {
         this.type = type;
-        this.categories = categories;
         this.id = id;
         this.name = name;
         this.pageDescription = pageDescription;
+        this.pageKeywords = pageKeywords;
         this.pageTitle = pageTitle;
         this.parentCategoryId = parentCategoryId;
+        this.thumbnail = thumbnail;
+        this.cDropDownViewType = cDropDownViewType;
         this.cEnableCompare = cEnableCompare;
-        this.cHeaderMenuBanner = cHeaderMenuBanner;
-        this.cHeaderMenuOrientation = cHeaderMenuOrientation;
+        this.cHideInSitemap = cHideInSitemap;
+        this.cIsExcludeTranslate = cIsExcludeTranslate;
+        this.cIsExternalUrl = cIsExternalUrl;
+        this.cIsRecommendationFromIBMcm = cIsRecommendationFromIBMcm;
+        this.cNavigationPromoContentAsset = cNavigationPromoContentAsset;
         this.cShowInMenu = cShowInMenu;
-        this.pageKeywords = pageKeywords;
-        this.cAlternativeUrl = cAlternativeUrl;
+        this.cShowInWhatsNew = cShowInWhatsNew;
+        this.cShowSubCategories = cShowSubCategories;
+        this.cIsGridTileSlotEnabled = cIsGridTileSlotEnabled;
+        this.cIsLargeViewDefault = cIsLargeViewDefault;
     }
 
     /**
@@ -127,31 +158,6 @@ public class Category {
 
     public Category withType(String type) {
         this.type = type;
-        return this;
-    }
-
-    /**
-     * 
-     * @return
-     *     The categories
-     */
-    @JsonProperty("categories")
-    public List<Category_> getCategories() {
-        return categories;
-    }
-
-    /**
-     * 
-     * @param categories
-     *     The categories
-     */
-    @JsonProperty("categories")
-    public void setCategories(List<Category_> categories) {
-        this.categories = categories;
-    }
-
-    public Category withCategories(List<Category_> categories) {
-        this.categories = categories;
         return this;
     }
 
@@ -233,6 +239,31 @@ public class Category {
     /**
      * 
      * @return
+     *     The pageKeywords
+     */
+    @JsonProperty("page_keywords")
+    public String getPageKeywords() {
+        return pageKeywords;
+    }
+
+    /**
+     * 
+     * @param pageKeywords
+     *     The page_keywords
+     */
+    @JsonProperty("page_keywords")
+    public void setPageKeywords(String pageKeywords) {
+        this.pageKeywords = pageKeywords;
+    }
+
+    public Category withPageKeywords(String pageKeywords) {
+        this.pageKeywords = pageKeywords;
+        return this;
+    }
+
+    /**
+     * 
+     * @return
      *     The pageTitle
      */
     @JsonProperty("page_title")
@@ -283,6 +314,56 @@ public class Category {
     /**
      * 
      * @return
+     *     The thumbnail
+     */
+    @JsonProperty("thumbnail")
+    public String getThumbnail() {
+        return thumbnail;
+    }
+
+    /**
+     * 
+     * @param thumbnail
+     *     The thumbnail
+     */
+    @JsonProperty("thumbnail")
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
+    }
+
+    public Category withThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
+        return this;
+    }
+
+    /**
+     * 
+     * @return
+     *     The cDropDownViewType
+     */
+    @JsonProperty("c_dropDownViewType")
+    public String getCDropDownViewType() {
+        return cDropDownViewType;
+    }
+
+    /**
+     * 
+     * @param cDropDownViewType
+     *     The c_dropDownViewType
+     */
+    @JsonProperty("c_dropDownViewType")
+    public void setCDropDownViewType(String cDropDownViewType) {
+        this.cDropDownViewType = cDropDownViewType;
+    }
+
+    public Category withCDropDownViewType(String cDropDownViewType) {
+        this.cDropDownViewType = cDropDownViewType;
+        return this;
+    }
+
+    /**
+     * 
+     * @return
      *     The cEnableCompare
      */
     @JsonProperty("c_enableCompare")
@@ -308,50 +389,125 @@ public class Category {
     /**
      * 
      * @return
-     *     The cHeaderMenuBanner
+     *     The cHideInSitemap
      */
-    @JsonProperty("c_headerMenuBanner")
-    public String getCHeaderMenuBanner() {
-        return cHeaderMenuBanner;
+    @JsonProperty("c_hideInSitemap")
+    public boolean isCHideInSitemap() {
+        return cHideInSitemap;
     }
 
     /**
      * 
-     * @param cHeaderMenuBanner
-     *     The c_headerMenuBanner
+     * @param cHideInSitemap
+     *     The c_hideInSitemap
      */
-    @JsonProperty("c_headerMenuBanner")
-    public void setCHeaderMenuBanner(String cHeaderMenuBanner) {
-        this.cHeaderMenuBanner = cHeaderMenuBanner;
+    @JsonProperty("c_hideInSitemap")
+    public void setCHideInSitemap(boolean cHideInSitemap) {
+        this.cHideInSitemap = cHideInSitemap;
     }
 
-    public Category withCHeaderMenuBanner(String cHeaderMenuBanner) {
-        this.cHeaderMenuBanner = cHeaderMenuBanner;
+    public Category withCHideInSitemap(boolean cHideInSitemap) {
+        this.cHideInSitemap = cHideInSitemap;
         return this;
     }
 
     /**
      * 
      * @return
-     *     The cHeaderMenuOrientation
+     *     The cIsExcludeTranslate
      */
-    @JsonProperty("c_headerMenuOrientation")
-    public String getCHeaderMenuOrientation() {
-        return cHeaderMenuOrientation;
+    @JsonProperty("c_isExcludeTranslate")
+    public boolean isCIsExcludeTranslate() {
+        return cIsExcludeTranslate;
     }
 
     /**
      * 
-     * @param cHeaderMenuOrientation
-     *     The c_headerMenuOrientation
+     * @param cIsExcludeTranslate
+     *     The c_isExcludeTranslate
      */
-    @JsonProperty("c_headerMenuOrientation")
-    public void setCHeaderMenuOrientation(String cHeaderMenuOrientation) {
-        this.cHeaderMenuOrientation = cHeaderMenuOrientation;
+    @JsonProperty("c_isExcludeTranslate")
+    public void setCIsExcludeTranslate(boolean cIsExcludeTranslate) {
+        this.cIsExcludeTranslate = cIsExcludeTranslate;
     }
 
-    public Category withCHeaderMenuOrientation(String cHeaderMenuOrientation) {
-        this.cHeaderMenuOrientation = cHeaderMenuOrientation;
+    public Category withCIsExcludeTranslate(boolean cIsExcludeTranslate) {
+        this.cIsExcludeTranslate = cIsExcludeTranslate;
+        return this;
+    }
+
+    /**
+     * 
+     * @return
+     *     The cIsExternalUrl
+     */
+    @JsonProperty("c_isExternalUrl")
+    public boolean isCIsExternalUrl() {
+        return cIsExternalUrl;
+    }
+
+    /**
+     * 
+     * @param cIsExternalUrl
+     *     The c_isExternalUrl
+     */
+    @JsonProperty("c_isExternalUrl")
+    public void setCIsExternalUrl(boolean cIsExternalUrl) {
+        this.cIsExternalUrl = cIsExternalUrl;
+    }
+
+    public Category withCIsExternalUrl(boolean cIsExternalUrl) {
+        this.cIsExternalUrl = cIsExternalUrl;
+        return this;
+    }
+
+    /**
+     * 
+     * @return
+     *     The cIsRecommendationFromIBMcm
+     */
+    @JsonProperty("c_isRecommendationFromIBMcm")
+    public boolean isCIsRecommendationFromIBMcm() {
+        return cIsRecommendationFromIBMcm;
+    }
+
+    /**
+     * 
+     * @param cIsRecommendationFromIBMcm
+     *     The c_isRecommendationFromIBMcm
+     */
+    @JsonProperty("c_isRecommendationFromIBMcm")
+    public void setCIsRecommendationFromIBMcm(boolean cIsRecommendationFromIBMcm) {
+        this.cIsRecommendationFromIBMcm = cIsRecommendationFromIBMcm;
+    }
+
+    public Category withCIsRecommendationFromIBMcm(boolean cIsRecommendationFromIBMcm) {
+        this.cIsRecommendationFromIBMcm = cIsRecommendationFromIBMcm;
+        return this;
+    }
+
+    /**
+     * 
+     * @return
+     *     The cNavigationPromoContentAsset
+     */
+    @JsonProperty("c_navigationPromoContentAsset")
+    public String getCNavigationPromoContentAsset() {
+        return cNavigationPromoContentAsset;
+    }
+
+    /**
+     * 
+     * @param cNavigationPromoContentAsset
+     *     The c_navigationPromoContentAsset
+     */
+    @JsonProperty("c_navigationPromoContentAsset")
+    public void setCNavigationPromoContentAsset(String cNavigationPromoContentAsset) {
+        this.cNavigationPromoContentAsset = cNavigationPromoContentAsset;
+    }
+
+    public Category withCNavigationPromoContentAsset(String cNavigationPromoContentAsset) {
+        this.cNavigationPromoContentAsset = cNavigationPromoContentAsset;
         return this;
     }
 
@@ -383,50 +539,100 @@ public class Category {
     /**
      * 
      * @return
-     *     The pageKeywords
+     *     The cShowInWhatsNew
      */
-    @JsonProperty("page_keywords")
-    public String getPageKeywords() {
-        return pageKeywords;
+    @JsonProperty("c_showInWhatsNew")
+    public boolean isCShowInWhatsNew() {
+        return cShowInWhatsNew;
     }
 
     /**
      * 
-     * @param pageKeywords
-     *     The page_keywords
+     * @param cShowInWhatsNew
+     *     The c_showInWhatsNew
      */
-    @JsonProperty("page_keywords")
-    public void setPageKeywords(String pageKeywords) {
-        this.pageKeywords = pageKeywords;
+    @JsonProperty("c_showInWhatsNew")
+    public void setCShowInWhatsNew(boolean cShowInWhatsNew) {
+        this.cShowInWhatsNew = cShowInWhatsNew;
     }
 
-    public Category withPageKeywords(String pageKeywords) {
-        this.pageKeywords = pageKeywords;
+    public Category withCShowInWhatsNew(boolean cShowInWhatsNew) {
+        this.cShowInWhatsNew = cShowInWhatsNew;
         return this;
     }
 
     /**
      * 
      * @return
-     *     The cAlternativeUrl
+     *     The cShowSubCategories
      */
-    @JsonProperty("c_alternativeUrl")
-    public String getCAlternativeUrl() {
-        return cAlternativeUrl;
+    @JsonProperty("c_showSubCategories")
+    public boolean isCShowSubCategories() {
+        return cShowSubCategories;
     }
 
     /**
      * 
-     * @param cAlternativeUrl
-     *     The c_alternativeUrl
+     * @param cShowSubCategories
+     *     The c_showSubCategories
      */
-    @JsonProperty("c_alternativeUrl")
-    public void setCAlternativeUrl(String cAlternativeUrl) {
-        this.cAlternativeUrl = cAlternativeUrl;
+    @JsonProperty("c_showSubCategories")
+    public void setCShowSubCategories(boolean cShowSubCategories) {
+        this.cShowSubCategories = cShowSubCategories;
     }
 
-    public Category withCAlternativeUrl(String cAlternativeUrl) {
-        this.cAlternativeUrl = cAlternativeUrl;
+    public Category withCShowSubCategories(boolean cShowSubCategories) {
+        this.cShowSubCategories = cShowSubCategories;
+        return this;
+    }
+
+    /**
+     * 
+     * @return
+     *     The cIsGridTileSlotEnabled
+     */
+    @JsonProperty("c_isGridTileSlotEnabled")
+    public boolean isCIsGridTileSlotEnabled() {
+        return cIsGridTileSlotEnabled;
+    }
+
+    /**
+     * 
+     * @param cIsGridTileSlotEnabled
+     *     The c_isGridTileSlotEnabled
+     */
+    @JsonProperty("c_isGridTileSlotEnabled")
+    public void setCIsGridTileSlotEnabled(boolean cIsGridTileSlotEnabled) {
+        this.cIsGridTileSlotEnabled = cIsGridTileSlotEnabled;
+    }
+
+    public Category withCIsGridTileSlotEnabled(boolean cIsGridTileSlotEnabled) {
+        this.cIsGridTileSlotEnabled = cIsGridTileSlotEnabled;
+        return this;
+    }
+
+    /**
+     * 
+     * @return
+     *     The cIsLargeViewDefault
+     */
+    @JsonProperty("c_isLargeViewDefault")
+    public boolean isCIsLargeViewDefault() {
+        return cIsLargeViewDefault;
+    }
+
+    /**
+     * 
+     * @param cIsLargeViewDefault
+     *     The c_isLargeViewDefault
+     */
+    @JsonProperty("c_isLargeViewDefault")
+    public void setCIsLargeViewDefault(boolean cIsLargeViewDefault) {
+        this.cIsLargeViewDefault = cIsLargeViewDefault;
+    }
+
+    public Category withCIsLargeViewDefault(boolean cIsLargeViewDefault) {
+        this.cIsLargeViewDefault = cIsLargeViewDefault;
         return this;
     }
 
@@ -450,19 +656,9 @@ public class Category {
         return this;
     }
 
-    @JsonProperty("categories")
-    public String getThumbnail() {
-		return thumbnail;
-	}
-
-    @JsonProperty("categories")
-	public void setThumbnail(String thumbnail) {
-		this.thumbnail = thumbnail;
-	}
-
-	@Override
+    @Override
     public int hashCode() {
-        return new HashCodeBuilder().append(type).append(categories).append(id).append(name).append(pageDescription).append(pageTitle).append(parentCategoryId).append(cEnableCompare).append(cHeaderMenuBanner).append(cHeaderMenuOrientation).append(cShowInMenu).append(pageKeywords).append(cAlternativeUrl).append(additionalProperties).toHashCode();
+        return new HashCodeBuilder().append(type).append(id).append(name).append(pageDescription).append(pageKeywords).append(pageTitle).append(parentCategoryId).append(thumbnail).append(cDropDownViewType).append(cEnableCompare).append(cHideInSitemap).append(cIsExcludeTranslate).append(cIsExternalUrl).append(cIsRecommendationFromIBMcm).append(cNavigationPromoContentAsset).append(cShowInMenu).append(cShowInWhatsNew).append(cShowSubCategories).append(cIsGridTileSlotEnabled).append(cIsLargeViewDefault).append(additionalProperties).toHashCode();
     }
 
     @Override
@@ -474,7 +670,7 @@ public class Category {
             return false;
         }
         Category rhs = ((Category) other);
-        return new EqualsBuilder().append(type, rhs.type).append(categories, rhs.categories).append(id, rhs.id).append(name, rhs.name).append(pageDescription, rhs.pageDescription).append(pageTitle, rhs.pageTitle).append(parentCategoryId, rhs.parentCategoryId).append(cEnableCompare, rhs.cEnableCompare).append(cHeaderMenuBanner, rhs.cHeaderMenuBanner).append(cHeaderMenuOrientation, rhs.cHeaderMenuOrientation).append(cShowInMenu, rhs.cShowInMenu).append(pageKeywords, rhs.pageKeywords).append(cAlternativeUrl, rhs.cAlternativeUrl).append(additionalProperties, rhs.additionalProperties).isEquals();
+        return new EqualsBuilder().append(type, rhs.type).append(id, rhs.id).append(name, rhs.name).append(pageDescription, rhs.pageDescription).append(pageKeywords, rhs.pageKeywords).append(pageTitle, rhs.pageTitle).append(parentCategoryId, rhs.parentCategoryId).append(thumbnail, rhs.thumbnail).append(cDropDownViewType, rhs.cDropDownViewType).append(cEnableCompare, rhs.cEnableCompare).append(cHideInSitemap, rhs.cHideInSitemap).append(cIsExcludeTranslate, rhs.cIsExcludeTranslate).append(cIsExternalUrl, rhs.cIsExternalUrl).append(cIsRecommendationFromIBMcm, rhs.cIsRecommendationFromIBMcm).append(cNavigationPromoContentAsset, rhs.cNavigationPromoContentAsset).append(cShowInMenu, rhs.cShowInMenu).append(cShowInWhatsNew, rhs.cShowInWhatsNew).append(cShowSubCategories, rhs.cShowSubCategories).append(cIsGridTileSlotEnabled, rhs.cIsGridTileSlotEnabled).append(cIsLargeViewDefault, rhs.cIsLargeViewDefault).append(additionalProperties, rhs.additionalProperties).isEquals();
     }
 
 }
