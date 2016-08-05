@@ -5,7 +5,6 @@ package com.heroku.demo.config;
 
 import javax.servlet.Filter;
 
-import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import com.heroku.demo.filters.CORSFilter;
@@ -39,8 +38,7 @@ public class SpringWebAppInitializer extends AbstractAnnotationConfigDispatcherS
 	@Override
     protected Filter[] getServletFilters() {
        return new Filter[]{ 
-    		   new CORSFilter()/*,
-    		   new OpenEntityManagerInViewFilter()*/};
+    		   new CORSFilter()};
     } 
 
 }

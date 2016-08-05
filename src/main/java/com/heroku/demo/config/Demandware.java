@@ -19,12 +19,12 @@ public class Demandware {
 	
 	
 	public Demandware() {
-		setUrl(isNull(System.getenv("DW_URL"), "http://mjacob01-inside-na01-dw.demandware.net"));
+		setUrl(isNull(System.getenv("DW_URL"), "http://mjacob01-inside-na01-dw.demandware.net/s/SiteGenesis"));
 		setClientId(isNull(System.getenv("DW_CLIENTID"), "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));
 		setApiVersion(isNull(System.getenv("DW_API_VERSION"), "v16_4"));
 		setUsername(isNull(System.getenv("DW_USERNAME"),""));
 		setSecret(isNull(System.getenv("DW_SECRET"),""));
-		setRootCategory(isNull(System.getenv("DW_ROOT_CATEGORY"), "Categories"));
+		setRootCategory(isNull(System.getenv("DW_ROOT_CATEGORY"), "root"));
 	}
 	
 	private String isNull(String val, String d){
