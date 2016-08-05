@@ -26,7 +26,7 @@ public class DemandwareRestController {
 	private static final String PRODUCT_SEARCH = "/products/search";
 	private static final String CATEGORY_URL = "/category/{category}";
 
-	private static Logger logger = LoggerFactory.getLogger(AccountController.class);
+	private static Logger logger = LoggerFactory.getLogger(DemandwareRestController.class);
 	
 	@Autowired
 	private DemandwareService dwService;

@@ -9,11 +9,12 @@ public class Demandware {
 	private String secret;
 	private String rootCategory;
 	
-	public Demandware(String url, String clientId, String apiVersion) {
+	public Demandware(String url, String clientId, String apiVersion, String rootCategory) {
 		super();
 		this.url = url;
 		this.clientId = clientId;
 		this.apiVersion = apiVersion;
+		this.rootCategory = rootCategory;
 	}
 	
 	

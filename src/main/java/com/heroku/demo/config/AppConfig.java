@@ -4,7 +4,6 @@
 package com.heroku.demo.config;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
@@ -15,7 +14,6 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
-import org.springframework.core.env.Environment;
 
 /**
  * @author rtorres
@@ -28,9 +26,6 @@ import org.springframework.core.env.Environment;
 @EnableAspectJAutoProxy
 @EnableCaching
 public class AppConfig {
-
-	@Autowired
-	private Environment env;
 
 	@Bean
 	public static PropertySourcesPlaceholderConfigurer placeHolderConfigurer()

@@ -33,26 +33,25 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter
 	public void addViewControllers(ViewControllerRegistry registry)
 	{
 		super.addViewControllers(registry);
-		registry.addViewController("welcome").setViewName("welcome");
 		registry.addViewController("index").setViewName("index");
 	}
 
-	@Bean
-	public ViewResolver resolver()
-	{
-		InternalResourceViewResolver url = new InternalResourceViewResolver();
-		url.setPrefix("/WEB-INF/pages/");
-		url.setSuffix(".jsp");
-		return url;
-	}
+//	@Bean
+//	public ViewResolver resolver()
+//	{
+//		InternalResourceViewResolver url = new InternalResourceViewResolver();
+//		url.setPrefix("/WEB-INF/pages/");
+//		url.setSuffix(".jsp");
+//		return url;
+//	}
 
-	@Override
-	public void addResourceHandlers(ResourceHandlerRegistry registry)
-	{
-		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
-		registry.addResourceHandler("/assets/**").addResourceLocations("/assets/");
-		registry.addResourceHandler("/vendor/**").addResourceLocations("/vendor/");
-	}
+//	@Override
+//	public void addResourceHandlers(ResourceHandlerRegistry registry)
+//	{
+//		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+//		registry.addResourceHandler("/assets/**").addResourceLocations("/assets/");
+//		registry.addResourceHandler("/vendor/**").addResourceLocations("/vendor/");
+//	}
 
 	@Override
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer)
@@ -60,15 +59,15 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter
 		configurer.enable();
 	}
 
-	@Bean(name = "messageSource")
-	public MessageSource configureMessageSource()
-	{
-		ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-		messageSource.setBasename("classpath:messages");
-		messageSource.setCacheSeconds(5);
-		messageSource.setDefaultEncoding("UTF-8");
-		return messageSource;
-	}
+//	@Bean(name = "messageSource")
+//	public MessageSource configureMessageSource()
+//	{
+//		ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+//		messageSource.setBasename("classpath:messages");
+//		messageSource.setCacheSeconds(5);
+//		messageSource.setDefaultEncoding("UTF-8");
+//		return messageSource;
+//	}
 
 	@Bean
 	public SimpleMappingExceptionResolver simpleMappingExceptionResolver()

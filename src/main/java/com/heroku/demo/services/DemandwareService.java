@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.heroku.demo.config.Demandware;
-import com.heroku.demo.dto.Categories;
+import com.heroku.demo.dto.categories.Categories;
 import com.heroku.demo.dto.product.Product;
 import com.heroku.demo.dto.productsearch.ProductSearch;
 
@@ -84,22 +84,7 @@ public class DemandwareService
 	    return queryString;
 	}
 	
-	public Categories allLevel1Categories(String category){
-		Demandware dw = new Demandware();
-		if (logger.isDebugEnabled())
-			logger.debug("Retrieving categories from demandware ");
-		
-		RestTemplate restTemplate = new RestTemplate();
-		String service = dw.getUrl() + "/dw/shop/" + dw.getApiVersion() + "/categories/" + category + "?levels=1&client_id=" + dw.getClientId() + "";
-		
-		System.out.println("allLevel1Categories - Calling demandware service -> " + service);
-		
-		Categories c = restTemplate.getForObject(service, Categories.class);
-		
-		return c;		
-	}
-	
-	public com.heroku.demo.dto.categories.Categories getRootCategories(){
+	public Categories getRootCategories(){
 		Demandware dw = new Demandware();
 		if (logger.isDebugEnabled())
 			logger.debug("Retrieving categories from demandware ");
@@ -109,12 +94,12 @@ public class DemandwareService
 		
 		System.out.println("getRootCategories -> Calling demandware service -> " + service);
 		
-		com.heroku.demo.dto.categories.Categories cs = restTemplate.getForObject(service, com.heroku.demo.dto.categories.Categories.class);
+		Categories cs = restTemplate.getForObject(service, Categories.class);
 		
 		return cs;		
 	}
 
-	public com.heroku.demo.dto.categories.Categories getCategories(String category){
+	public Categories getCategories(String category){
 		Demandware dw = new Demandware();
 		if (logger.isDebugEnabled())
 			logger.debug("Retrieving categories from demandware ");
@@ -124,7 +109,7 @@ public class DemandwareService
 		
 		System.out.println("getCategories -> Calling demandware service -> " + service);
 		
-		com.heroku.demo.dto.categories.Categories cs = restTemplate.getForObject(service, com.heroku.demo.dto.categories.Categories.class);
+		Categories cs = restTemplate.getForObject(service, Categories.class);
 		
 		return cs;		
 	}

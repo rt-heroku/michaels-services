@@ -39,8 +39,8 @@ public class SpringWebAppInitializer extends AbstractAnnotationConfigDispatcherS
 	@Override
     protected Filter[] getServletFilters() {
        return new Filter[]{ 
-    		   new CORSFilter(),
-    		   new OpenEntityManagerInViewFilter()};
+    		   new CORSFilter()/*,
+    		   new OpenEntityManagerInViewFilter()*/};
     } 
 
 }
