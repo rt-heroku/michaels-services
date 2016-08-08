@@ -2,7 +2,7 @@
   "name": "Michaels POC demo services",
   "description": "Services for the POC mobile app",
   "website": "https://github.com/rt-heroku/michaels-services",
-  "repository": "https://github.com/rt-heroku/michaels-services",
+  "repository": "https://github.com/rt-heroku/michaels-services.git",
   "logo": "https://upload.wikimedia.org/wikipedia/en/0/0e/Michaels_Logo.svg",
   "scripts": {},
   "env": {
