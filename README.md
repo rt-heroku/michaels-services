@@ -1,4 +1,4 @@
-Deploy michales-services
+Deploy michaels-services
 ========================
 
 
